@@ -13,12 +13,13 @@ from __future__ import division, print_function, absolute_import
 cimport poc.cython_extensions.helloworld as helloworld
 
 
-def hello(s):
+def hello():
     """Python interface to mylibrary.subpackage.helloworld.
 This is mainly an example of absolute imports in Cython modules.
 Parameters:
     s : str
         The string to echo.
 """
-    helloworld.hello(s)
+    out = helloworld.hello()
+    print(out)
 

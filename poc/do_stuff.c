@@ -776,6 +776,16 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject
 #define __Pyx_PyObject_GetAttrStr(o,n) PyObject_GetAttr(o,n)
 #endif
 
+/* GetBuiltinName.proto */
+static PyObject *__Pyx_GetBuiltinName(PyObject *name);
+
+/* PyObjectCall.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
+#else
+#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
+#endif
+
 /* CLineInTraceback.proto */
 static int __Pyx_CLineForTraceback(int c_line);
 
@@ -830,17 +840,19 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
 /* Module declarations from 'poc.cython_extensions.helloworld' */
-static void (*__pyx_f_3poc_17cython_extensions_10helloworld_hello)(PyObject *); /*proto*/
+static double (*__pyx_f_3poc_17cython_extensions_10helloworld_hello)(void); /*proto*/
 
 /* Module declarations from 'poc.do_stuff' */
 #define __Pyx_MODULE_NAME "poc.do_stuff"
 int __pyx_module_is_main_poc__do_stuff = 0;
 
 /* Implementation of 'poc.do_stuff' */
-static const char __pyx_k_s[] = "s";
+static PyObject *__pyx_builtin_print;
+static const char __pyx_k_out[] = "out";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_hello[] = "hello";
+static const char __pyx_k_print[] = "print";
 static const char __pyx_k_poc_do_stuff[] = "poc.do_stuff";
 static const char __pyx_k_poc_do_stuff_pyx[] = "poc/do_stuff.pyx";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
@@ -848,55 +860,77 @@ static const char __pyx_k_Example_Cython_module_that_calls[] = "Example Cython m
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_hello;
 static PyObject *__pyx_n_s_main;
+static PyObject *__pyx_n_s_out;
 static PyObject *__pyx_n_s_poc_do_stuff;
 static PyObject *__pyx_kp_s_poc_do_stuff_pyx;
-static PyObject *__pyx_n_s_s;
+static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_pf_3poc_8do_stuff_hello(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_s); /* proto */
+static PyObject *__pyx_pf_3poc_8do_stuff_hello(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 
 /* "poc/do_stuff.pyx":16
  * 
  * 
- * def hello(s):             # <<<<<<<<<<<<<<
+ * def hello():             # <<<<<<<<<<<<<<
  *     """Python interface to mylibrary.subpackage.helloworld.
  * This is mainly an example of absolute imports in Cython modules.
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3poc_8do_stuff_1hello(PyObject *__pyx_self, PyObject *__pyx_v_s); /*proto*/
+static PyObject *__pyx_pw_3poc_8do_stuff_1hello(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static char __pyx_doc_3poc_8do_stuff_hello[] = "Python interface to mylibrary.subpackage.helloworld.\nThis is mainly an example of absolute imports in Cython modules.\nParameters:\n    s : str\n        The string to echo.\n";
-static PyMethodDef __pyx_mdef_3poc_8do_stuff_1hello = {"hello", (PyCFunction)__pyx_pw_3poc_8do_stuff_1hello, METH_O, __pyx_doc_3poc_8do_stuff_hello};
-static PyObject *__pyx_pw_3poc_8do_stuff_1hello(PyObject *__pyx_self, PyObject *__pyx_v_s) {
+static PyMethodDef __pyx_mdef_3poc_8do_stuff_1hello = {"hello", (PyCFunction)__pyx_pw_3poc_8do_stuff_1hello, METH_NOARGS, __pyx_doc_3poc_8do_stuff_hello};
+static PyObject *__pyx_pw_3poc_8do_stuff_1hello(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("hello (wrapper)", 0);
-  __pyx_r = __pyx_pf_3poc_8do_stuff_hello(__pyx_self, ((PyObject *)__pyx_v_s));
+  __pyx_r = __pyx_pf_3poc_8do_stuff_hello(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3poc_8do_stuff_hello(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_s) {
+static PyObject *__pyx_pf_3poc_8do_stuff_hello(CYTHON_UNUSED PyObject *__pyx_self) {
+  double __pyx_v_out;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("hello", 0);
 
   /* "poc/do_stuff.pyx":23
  *         The string to echo.
  * """
- *     helloworld.hello(s)             # <<<<<<<<<<<<<<
+ *     out = helloworld.hello()             # <<<<<<<<<<<<<<
+ *     print(out)
  * 
  */
-  if (!(likely(PyString_CheckExact(__pyx_v_s))||((__pyx_v_s) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_v_s)->tp_name), 0))) __PYX_ERR(0, 23, __pyx_L1_error)
-  __pyx_f_3poc_17cython_extensions_10helloworld_hello(((PyObject*)__pyx_v_s));
+  __pyx_v_out = __pyx_f_3poc_17cython_extensions_10helloworld_hello();
+
+  /* "poc/do_stuff.pyx":24
+ * """
+ *     out = helloworld.hello()
+ *     print(out)             # <<<<<<<<<<<<<<
+ * 
+ */
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_out); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "poc/do_stuff.pyx":16
  * 
  * 
- * def hello(s):             # <<<<<<<<<<<<<<
+ * def hello():             # <<<<<<<<<<<<<<
  *     """Python interface to mylibrary.subpackage.helloworld.
  * This is mainly an example of absolute imports in Cython modules.
  */
@@ -905,6 +939,8 @@ static PyObject *__pyx_pf_3poc_8do_stuff_hello(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("poc.do_stuff.hello", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -939,14 +975,18 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_hello, __pyx_k_hello, sizeof(__pyx_k_hello), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
+  {&__pyx_n_s_out, __pyx_k_out, sizeof(__pyx_k_out), 0, 0, 1, 1},
   {&__pyx_n_s_poc_do_stuff, __pyx_k_poc_do_stuff, sizeof(__pyx_k_poc_do_stuff), 0, 0, 1, 1},
   {&__pyx_kp_s_poc_do_stuff_pyx, __pyx_k_poc_do_stuff_pyx, sizeof(__pyx_k_poc_do_stuff_pyx), 0, 0, 1, 0},
-  {&__pyx_n_s_s, __pyx_k_s, sizeof(__pyx_k_s), 0, 0, 1, 1},
+  {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 24, __pyx_L1_error)
   return 0;
+  __pyx_L1_error:;
+  return -1;
 }
 
 static int __Pyx_InitCachedConstants(void) {
@@ -956,14 +996,14 @@ static int __Pyx_InitCachedConstants(void) {
   /* "poc/do_stuff.pyx":16
  * 
  * 
- * def hello(s):             # <<<<<<<<<<<<<<
+ * def hello():             # <<<<<<<<<<<<<<
  *     """Python interface to mylibrary.subpackage.helloworld.
  * This is mainly an example of absolute imports in Cython modules.
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_s); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_out); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_poc_do_stuff_pyx, __pyx_n_s_hello, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(0, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_poc_do_stuff_pyx, __pyx_n_s_hello, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1068,7 +1108,7 @@ PyMODINIT_FUNC PyInit_do_stuff(void)
   /*--- Variable import code ---*/
   /*--- Function import code ---*/
   __pyx_t_1 = __Pyx_ImportModule("poc.cython_extensions.helloworld"); if (!__pyx_t_1) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ImportFunction(__pyx_t_1, "hello", (void (**)(void))&__pyx_f_3poc_17cython_extensions_10helloworld_hello, "void (PyObject *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_1, "hello", (void (**)(void))&__pyx_f_3poc_17cython_extensions_10helloworld_hello, "double (void)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   Py_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   /*--- Execution code ---*/
   #if defined(__Pyx_Generator_USED) || defined(__Pyx_Coroutine_USED)
@@ -1078,7 +1118,7 @@ PyMODINIT_FUNC PyInit_do_stuff(void)
   /* "poc/do_stuff.pyx":16
  * 
  * 
- * def hello(s):             # <<<<<<<<<<<<<<
+ * def hello():             # <<<<<<<<<<<<<<
  *     """Python interface to mylibrary.subpackage.helloworld.
  * This is mainly an example of absolute imports in Cython modules.
  */
@@ -1135,6 +1175,40 @@ end:
     Py_XDECREF(p);
     Py_XDECREF(m);
     return (__Pyx_RefNannyAPIStruct *)r;
+}
+#endif
+
+/* GetBuiltinName */
+static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
+    PyObject* result = __Pyx_PyObject_GetAttrStr(__pyx_b, name);
+    if (unlikely(!result)) {
+        PyErr_Format(PyExc_NameError,
+#if PY_MAJOR_VERSION >= 3
+            "name '%U' is not defined", name);
+#else
+            "name '%.200s' is not defined", PyString_AS_STRING(name));
+#endif
+    }
+    return result;
+}
+
+/* PyObjectCall */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
+    PyObject *result;
+    ternaryfunc call = func->ob_type->tp_call;
+    if (unlikely(!call))
+        return PyObject_Call(func, arg, kw);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = (*call)(func, arg, kw);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
 }
 #endif
 

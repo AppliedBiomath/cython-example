@@ -12,8 +12,6 @@
 
 from __future__ import division, print_function, absolute_import
 
-# Echo the string s.
-#
-cdef void hello(str s):
-    print(s)  # this is really, really silly (providing a Cython-level cdef function that just calls Python print())
+cdef extern from "test.h":
+   cpdef double hello()
 

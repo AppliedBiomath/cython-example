@@ -7,3 +7,4 @@ poc.egg-info/dependency_links.txt
 poc.egg-info/top_level.txt
 poc/cython_extensions/__init__.py
 poc/cython_extensions/helloworld.c
+poc/cython_extensions/test.c

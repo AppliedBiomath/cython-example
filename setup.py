@@ -10,7 +10,10 @@ ext_module_dostuff = Extension(
 
 ext_module_helloworld = Extension(
     'poc.cython_extensions.helloworld',
-    ['poc/cython_extensions/helloworld.pyx']
+    ['poc/cython_extensions/helloworld.pyx', 'poc/cython_extensions/test.c'],
+    include_dirs = ['/usr/local/include'],
+    libraries = ['m'],
+    library_dirs = ['/usr/local/lib'],
 )
 
 cython_ext_modules = [
