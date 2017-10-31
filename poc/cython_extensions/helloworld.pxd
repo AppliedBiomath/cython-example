@@ -6,3 +6,4 @@
 from __future__ import absolute_import
 
 cdef double hello()
+cdef int c_roberts()

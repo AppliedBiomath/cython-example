@@ -4,6 +4,7 @@
 {
     "distutils": {
         "depends": [
+            "poc/cython_extensions/cvRoberts_dns.h",
             "poc/cython_extensions/test.h"
         ],
         "include_dirs": [
@@ -19,7 +20,8 @@
         "name": "poc.cython_extensions.helloworld",
         "sources": [
             "poc/cython_extensions/helloworld.pyx",
-            "poc/cython_extensions/test.c"
+            "poc/cython_extensions/test.c",
+            "poc/cython_extensions/cvRoberts_dns.c"
         ]
     },
     "module_name": "poc.cython_extensions.helloworld"
@@ -506,6 +508,7 @@ static CYTHON_INLINE float __PYX_NAN() {
 #define __PYX_HAVE__poc__cython_extensions__helloworld
 #define __PYX_HAVE_API__poc__cython_extensions__helloworld
 #include "test.h"
+#include "cvRoberts_dns.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -713,6 +716,7 @@ static const char *__pyx_f[] = {
 
 /*--- Type declarations ---*/
 struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_double_______to_py;
+struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py;
 
 /* "cfunc.to_py":64
  * 
@@ -724,6 +728,11 @@ struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_double_______to_py;
 struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_double_______to_py {
   PyObject_HEAD
   double (*__pyx_v_f)(void);
+};
+
+struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py {
+  PyObject_HEAD
+  int (*__pyx_v_f)(void);
 };
 
 
@@ -890,6 +899,9 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
                                int py_line, const char *filename);
 
 /* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
+
+/* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* CIntFromPy.proto */
@@ -910,7 +922,9 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'poc.cython_extensions.helloworld' */
 static PyTypeObject *__pyx_ptype___pyx_scope_struct____Pyx_CFunc_double_______to_py = 0;
+static PyTypeObject *__pyx_ptype___pyx_scope_struct____Pyx_CFunc_int_______to_py = 0;
 static PyObject *__Pyx_CFunc_double_______to_py(double (*)(void)); /*proto*/
+static PyObject *__Pyx_CFunc_int_______to_py(int (*)(void)); /*proto*/
 #define __Pyx_MODULE_NAME "poc.cython_extensions.helloworld"
 int __pyx_module_is_main_poc__cython_extensions__helloworld = 0;
 
@@ -923,7 +937,9 @@ static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_Example_Cython_module[] = "Example Cython module.";
 static const char __pyx_k_Pyx_CFunc_double_______to_py_l[] = "__Pyx_CFunc_double_______to_py.<locals>.wrap";
+static const char __pyx_k_Pyx_CFunc_int_______to_py_loca[] = "__Pyx_CFunc_int_______to_py.<locals>.wrap";
 static PyObject *__pyx_n_s_Pyx_CFunc_double_______to_py_l;
+static PyObject *__pyx_n_s_Pyx_CFunc_int_______to_py_loca;
 static PyObject *__pyx_n_s_cfunc_to_py;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_main;
@@ -931,8 +947,11 @@ static PyObject *__pyx_kp_s_stringsource;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_wrap;
 static PyObject *__pyx_pf_11cfunc_dot_to_py_30__Pyx_CFunc_double_______to_py_wrap(PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_wrap(PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_tp_new___pyx_scope_struct____Pyx_CFunc_double_______to_py(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new___pyx_scope_struct____Pyx_CFunc_int_______to_py(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_codeobj_;
+static PyObject *__pyx_codeobj__2;
 
 /* "cfunc.to_py":65
  * @cname("__Pyx_CFunc_double_______to_py")
@@ -1072,6 +1091,144 @@ static PyObject *__Pyx_CFunc_double_______to_py(double (*__pyx_v_f)(void)) {
   return __pyx_r;
 }
 
+/* "cfunc.to_py":65
+ * @cname("__Pyx_CFunc_int_______to_py")
+ * cdef object __Pyx_CFunc_int_______to_py(int (*f)() except *):
+ *     def wrap():             # <<<<<<<<<<<<<<
+ *         """wrap() -> 'int'"""
+ *         return f()
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_1wrap(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_wrap[] = "wrap() -> 'int'";
+static PyMethodDef __pyx_mdef_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_1wrap = {"wrap", (PyCFunction)__pyx_pw_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_1wrap, METH_NOARGS, __pyx_doc_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_wrap};
+static PyObject *__pyx_pw_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_1wrap(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("wrap (wrapper)", 0);
+  __pyx_r = __pyx_pf_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_wrap(__pyx_self);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_wrap(PyObject *__pyx_self) {
+  struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py *__pyx_cur_scope;
+  struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py *__pyx_outer_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  __Pyx_RefNannySetupContext("wrap", 0);
+  __pyx_outer_scope = (struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_cur_scope = __pyx_outer_scope;
+
+  /* "cfunc.to_py":67
+ *     def wrap():
+ *         """wrap() -> 'int'"""
+ *         return f()             # <<<<<<<<<<<<<<
+ *     return wrap
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_cur_scope->__pyx_v_f(); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* "cfunc.to_py":65
+ * @cname("__Pyx_CFunc_int_______to_py")
+ * cdef object __Pyx_CFunc_int_______to_py(int (*f)() except *):
+ *     def wrap():             # <<<<<<<<<<<<<<
+ *         """wrap() -> 'int'"""
+ *         return f()
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_AddTraceback("cfunc.to_py.__Pyx_CFunc_int_______to_py.wrap", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "cfunc.to_py":64
+ * 
+ * @cname("__Pyx_CFunc_int_______to_py")
+ * cdef object __Pyx_CFunc_int_______to_py(int (*f)() except *):             # <<<<<<<<<<<<<<
+ *     def wrap():
+ *         """wrap() -> 'int'"""
+ */
+
+static PyObject *__Pyx_CFunc_int_______to_py(int (*__pyx_v_f)(void)) {
+  struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py *__pyx_cur_scope;
+  PyObject *__pyx_v_wrap = 0;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("__Pyx_CFunc_int_______to_py", 0);
+  __pyx_cur_scope = (struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py *)__pyx_tp_new___pyx_scope_struct____Pyx_CFunc_int_______to_py(__pyx_ptype___pyx_scope_struct____Pyx_CFunc_int_______to_py, __pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 64, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF(__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_f = __pyx_v_f;
+
+  /* "cfunc.to_py":65
+ * @cname("__Pyx_CFunc_int_______to_py")
+ * cdef object __Pyx_CFunc_int_______to_py(int (*f)() except *):
+ *     def wrap():             # <<<<<<<<<<<<<<
+ *         """wrap() -> 'int'"""
+ *         return f()
+ */
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_11cfunc_dot_to_py_27__Pyx_CFunc_int_______to_py_1wrap, 0, __pyx_n_s_Pyx_CFunc_int_______to_py_loca, ((PyObject*)__pyx_cur_scope), __pyx_n_s_cfunc_to_py, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_wrap = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "cfunc.to_py":68
+ *         """wrap() -> 'int'"""
+ *         return f()
+ *     return wrap             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_wrap);
+  __pyx_r = __pyx_v_wrap;
+  goto __pyx_L0;
+
+  /* "cfunc.to_py":64
+ * 
+ * @cname("__Pyx_CFunc_int_______to_py")
+ * cdef object __Pyx_CFunc_int_______to_py(int (*f)() except *):             # <<<<<<<<<<<<<<
+ *     def wrap():
+ *         """wrap() -> 'int'"""
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("cfunc.to_py.__Pyx_CFunc_int_______to_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_wrap);
+  __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
 static struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_double_______to_py *__pyx_freelist___pyx_scope_struct____Pyx_CFunc_double_______to_py[8];
 static int __pyx_freecount___pyx_scope_struct____Pyx_CFunc_double_______to_py = 0;
 
@@ -1154,6 +1311,88 @@ static PyTypeObject __pyx_scope_struct____Pyx_CFunc_double_______to_py = {
   #endif
 };
 
+static struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py *__pyx_freelist___pyx_scope_struct____Pyx_CFunc_int_______to_py[8];
+static int __pyx_freecount___pyx_scope_struct____Pyx_CFunc_int_______to_py = 0;
+
+static PyObject *__pyx_tp_new___pyx_scope_struct____Pyx_CFunc_int_______to_py(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount___pyx_scope_struct____Pyx_CFunc_int_______to_py > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py)))) {
+    o = (PyObject*)__pyx_freelist___pyx_scope_struct____Pyx_CFunc_int_______to_py[--__pyx_freecount___pyx_scope_struct____Pyx_CFunc_int_______to_py];
+    memset(o, 0, sizeof(struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py));
+    (void) PyObject_INIT(o, t);
+  } else {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  return o;
+}
+
+static void __pyx_tp_dealloc___pyx_scope_struct____Pyx_CFunc_int_______to_py(PyObject *o) {
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount___pyx_scope_struct____Pyx_CFunc_int_______to_py < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py)))) {
+    __pyx_freelist___pyx_scope_struct____Pyx_CFunc_int_______to_py[__pyx_freecount___pyx_scope_struct____Pyx_CFunc_int_______to_py++] = ((struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py *)o);
+  } else {
+    (*Py_TYPE(o)->tp_free)(o);
+  }
+}
+
+static PyTypeObject __pyx_scope_struct____Pyx_CFunc_int_______to_py = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "poc.cython_extensions.helloworld.__pyx_scope_struct____Pyx_CFunc_int_______to_py", /*tp_name*/
+  sizeof(struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_int_______to_py), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc___pyx_scope_struct____Pyx_CFunc_int_______to_py, /*tp_dealloc*/
+  0, /*tp_print*/
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  #if PY_MAJOR_VERSION < 3
+  0, /*tp_compare*/
+  #endif
+  #if PY_MAJOR_VERSION >= 3
+  0, /*tp_as_async*/
+  #endif
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER, /*tp_flags*/
+  0, /*tp_doc*/
+  0, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  0, /*tp_dictoffset*/
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new___pyx_scope_struct____Pyx_CFunc_int_______to_py, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if PY_VERSION_HEX >= 0x030400a1
+  0, /*tp_finalize*/
+  #endif
+};
+
 static PyMethodDef __pyx_methods[] = {
   {0, 0, 0, 0}
 };
@@ -1178,6 +1417,7 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_Pyx_CFunc_double_______to_py_l, __pyx_k_Pyx_CFunc_double_______to_py_l, sizeof(__pyx_k_Pyx_CFunc_double_______to_py_l), 0, 0, 1, 1},
+  {&__pyx_n_s_Pyx_CFunc_int_______to_py_loca, __pyx_k_Pyx_CFunc_int_______to_py_loca, sizeof(__pyx_k_Pyx_CFunc_int_______to_py_loca), 0, 0, 1, 1},
   {&__pyx_n_s_cfunc_to_py, __pyx_k_cfunc_to_py, sizeof(__pyx_k_cfunc_to_py), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
@@ -1202,6 +1442,7 @@ static int __Pyx_InitCachedConstants(void) {
  *         return f()
  */
   __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_wrap, 65, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_wrap, 65, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1301,10 +1542,14 @@ PyMODINIT_FUNC PyInit_helloworld(void)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   if (__Pyx_ExportFunction("hello", (void (*)(void))hello, "double (void)") < 0) __PYX_ERR(1, 2, __pyx_L1_error)
+  if (__Pyx_ExportFunction("c_roberts", (void (*)(void))c_roberts, "int (void)") < 0) __PYX_ERR(1, 2, __pyx_L1_error)
   /*--- Type init code ---*/
   if (PyType_Ready(&__pyx_scope_struct____Pyx_CFunc_double_______to_py) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
   __pyx_scope_struct____Pyx_CFunc_double_______to_py.tp_print = 0;
   __pyx_ptype___pyx_scope_struct____Pyx_CFunc_double_______to_py = &__pyx_scope_struct____Pyx_CFunc_double_______to_py;
+  if (PyType_Ready(&__pyx_scope_struct____Pyx_CFunc_int_______to_py) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_scope_struct____Pyx_CFunc_int_______to_py.tp_print = 0;
+  __pyx_ptype___pyx_scope_struct____Pyx_CFunc_int_______to_py = &__pyx_scope_struct____Pyx_CFunc_int_______to_py;
   /*--- Type import code ---*/
   /*--- Variable import code ---*/
   /*--- Function import code ---*/
@@ -1326,13 +1571,18 @@ PyMODINIT_FUNC PyInit_helloworld(void)
 
   /* "cfunc.to_py":64
  * 
- * @cname("__Pyx_CFunc_double_______to_py")
- * cdef object __Pyx_CFunc_double_______to_py(double (*f)() except *):             # <<<<<<<<<<<<<<
+ * @cname("__Pyx_CFunc_int_______to_py")
+ * cdef object __Pyx_CFunc_int_______to_py(int (*f)() except *):             # <<<<<<<<<<<<<<
  *     def wrap():
- *         """wrap() -> float"""
+ *         """wrap() -> 'int'"""
  */
 
   /*--- Wrapped vars code ---*/
+  {
+    PyObject* wrapped = __Pyx_CFunc_int_______to_py(c_roberts);
+    if (unlikely(!wrapped)) __PYX_ERR(2, 9, __pyx_L1_error)
+    if (PyObject_SetAttrString(__pyx_m, "c_roberts", wrapped) < 0) __PYX_ERR(2, 9, __pyx_L1_error);
+  }
   {
     PyObject* wrapped = __Pyx_CFunc_double_______to_py(hello);
     if (unlikely(!wrapped)) __PYX_ERR(2, 8, __pyx_L1_error)
@@ -2197,6 +2447,37 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
 bad:
     Py_XDECREF(py_code);
     Py_XDECREF(py_frame);
+}
+
+/* CIntToPy */
+    static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
+    const int neg_one = (int) -1, const_zero = (int) 0;
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(int) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(int) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(int) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(int),
+                                     little, !is_unsigned);
+    }
 }
 
 /* CIntToPy */

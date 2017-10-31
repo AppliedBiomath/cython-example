@@ -22,4 +22,7 @@ Parameters:
 """
     out = helloworld.hello()
     print(out)
+    
+    print('trying to load the sundials program')
+    helloworld.c_roberts()
 

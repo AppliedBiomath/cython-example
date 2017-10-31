@@ -841,6 +841,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'poc.cython_extensions.helloworld' */
 static double (*__pyx_f_3poc_17cython_extensions_10helloworld_hello)(void); /*proto*/
+static int (*__pyx_f_3poc_17cython_extensions_10helloworld_c_roberts)(void); /*proto*/
 
 /* Module declarations from 'poc.do_stuff' */
 #define __Pyx_MODULE_NAME "poc.do_stuff"
@@ -857,6 +858,7 @@ static const char __pyx_k_poc_do_stuff[] = "poc.do_stuff";
 static const char __pyx_k_poc_do_stuff_pyx[] = "poc/do_stuff.pyx";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_Example_Cython_module_that_calls[] = "Example Cython module that calls a function from a subpackage of mylibrary.";
+static const char __pyx_k_trying_to_load_the_sundials_prog[] = "trying to load the sundials program";
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_hello;
 static PyObject *__pyx_n_s_main;
@@ -865,9 +867,11 @@ static PyObject *__pyx_n_s_poc_do_stuff;
 static PyObject *__pyx_kp_s_poc_do_stuff_pyx;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_test;
+static PyObject *__pyx_kp_s_trying_to_load_the_sundials_prog;
 static PyObject *__pyx_pf_3poc_8do_stuff_hello(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_tuple_;
-static PyObject *__pyx_codeobj__2;
+static PyObject *__pyx_tuple__2;
+static PyObject *__pyx_codeobj__3;
 
 /* "poc/do_stuff.pyx":16
  * 
@@ -914,6 +918,7 @@ static PyObject *__pyx_pf_3poc_8do_stuff_hello(CYTHON_UNUSED PyObject *__pyx_sel
  *     out = helloworld.hello()
  *     print(out)             # <<<<<<<<<<<<<<
  * 
+ *     print('trying to load the sundials program')
  */
   __pyx_t_1 = PyFloat_FromDouble(__pyx_v_out); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -926,6 +931,25 @@ static PyObject *__pyx_pf_3poc_8do_stuff_hello(CYTHON_UNUSED PyObject *__pyx_sel
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "poc/do_stuff.pyx":26
+ *     print(out)
+ * 
+ *     print('trying to load the sundials program')             # <<<<<<<<<<<<<<
+ *     helloworld.c_roberts()
+ * 
+ */
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "poc/do_stuff.pyx":27
+ * 
+ *     print('trying to load the sundials program')
+ *     helloworld.c_roberts()             # <<<<<<<<<<<<<<
+ * 
+ */
+  __pyx_f_3poc_17cython_extensions_10helloworld_c_roberts();
 
   /* "poc/do_stuff.pyx":16
  * 
@@ -980,6 +1004,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_poc_do_stuff_pyx, __pyx_k_poc_do_stuff_pyx, sizeof(__pyx_k_poc_do_stuff_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
+  {&__pyx_kp_s_trying_to_load_the_sundials_prog, __pyx_k_trying_to_load_the_sundials_prog, sizeof(__pyx_k_trying_to_load_the_sundials_prog), 0, 0, 1, 0},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
@@ -993,6 +1018,17 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
+  /* "poc/do_stuff.pyx":26
+ *     print(out)
+ * 
+ *     print('trying to load the sundials program')             # <<<<<<<<<<<<<<
+ *     helloworld.c_roberts()
+ * 
+ */
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_trying_to_load_the_sundials_prog); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple_);
+  __Pyx_GIVEREF(__pyx_tuple_);
+
   /* "poc/do_stuff.pyx":16
  * 
  * 
@@ -1000,10 +1036,10 @@ static int __Pyx_InitCachedConstants(void) {
  *     """Python interface to mylibrary.subpackage.helloworld.
  * This is mainly an example of absolute imports in Cython modules.
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_out); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple_);
-  __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(0, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_poc_do_stuff_pyx, __pyx_n_s_hello, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_n_s_out); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__2);
+  __Pyx_GIVEREF(__pyx_tuple__2);
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(0, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_poc_do_stuff_pyx, __pyx_n_s_hello, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1109,6 +1145,7 @@ PyMODINIT_FUNC PyInit_do_stuff(void)
   /*--- Function import code ---*/
   __pyx_t_1 = __Pyx_ImportModule("poc.cython_extensions.helloworld"); if (!__pyx_t_1) __PYX_ERR(0, 1, __pyx_L1_error)
   if (__Pyx_ImportFunction(__pyx_t_1, "hello", (void (**)(void))&__pyx_f_3poc_17cython_extensions_10helloworld_hello, "double (void)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_1, "c_roberts", (void (**)(void))&__pyx_f_3poc_17cython_extensions_10helloworld_c_roberts, "int (void)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   Py_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   /*--- Execution code ---*/
   #if defined(__Pyx_Generator_USED) || defined(__Pyx_Coroutine_USED)

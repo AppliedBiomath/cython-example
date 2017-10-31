@@ -15,3 +15,6 @@ from __future__ import division, print_function, absolute_import
 cdef extern from "test.h":
    cpdef double hello()
 
+cdef extern from "cvRoberts_dns.h":
+   cpdef int c_roberts()
+
